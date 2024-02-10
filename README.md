@@ -18,7 +18,7 @@ Docs for the API can be found here: [:musical_note:](https://www.last.fm/api/int
  * Has my listening preferences changed over the years, seasons etc?
 
 ## What is last.fm?
-A [website](https://www.last.fm/) which records your listening history, with integrations into Spotify, Deezer etc. I've had an account for a very long time dating back to 2013, so it was great to use that historic data in a project. Please support them by making an account and syncing it with your streaming app of choice.
+A website which records your listening history, with integrations into Spotify, Deezer etc. I've had an account for a very long time dating back to 2013, so it was great to use that historic data in a project. Please support them by making an account and syncing it with your streaming app of choice.
 
 ### So, what is a scrobble?
 A scrobble is a record of what you listened to, on an individual track level, so each scrobble equals one track played. 
