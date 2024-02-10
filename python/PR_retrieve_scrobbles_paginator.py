@@ -13,11 +13,11 @@ def get_lastfm_scrobbles(api_key, username, from_timestamp, to_timestamp, page=1
         'method': 'user.getrecenttracks',
         'user': username,
         'api_key': api_key,
-        'limit': 20,
+        'limit': 50,
         'from': from_timestamp,
         'to': to_timestamp,
         'format': 'json',
-        'page': page  # Add the page parameter
+        'page': page
     }
 
     response = requests.get(base_url, params=params)
@@ -52,10 +52,32 @@ def get_artist_top_tag(api_key, artist):
     return top_tag
 
 
+def get_album_info(api_key, artist, track):
+    base_url = "http://ws.audioscrobbler.com/2.0/"
+    params = {
+        'method': 'track.getInfo',
+        'artist': artist,
+        'track': track,
+        'api_key': api_key,
+        'format': 'json'
+    }
+
+    response = requests.get(base_url, params=params)
+    data = response.json()
+
+    if 'error' in data:
+        print(f"Error: {data['message']}")
+        return None
+
+    album = data['track'].get('album', {}).get('title', 'N/A')
+    return album
+
+
 def organize_scrobbles(scrobbles, api_key):
     timestamp_list = []
     artist_list = []
     track_list = []
+    album_list = []
     top_tag_list = []
 
     for scrobble in scrobbles:
@@ -66,19 +88,21 @@ def organize_scrobbles(scrobbles, api_key):
 
         artist = scrobble['artist']['#text']
         track = scrobble['name']
-        tags = get_artist_top_tag(api_key, artist) if artist else None
+        album = get_album_info(api_key, artist, track) if artist and track else 'N/A'
+        tags = get_artist_top_tag(api_key, artist) if artist else 'N/A'
         
 
         timestamp_list.append(timestamp)
         artist_list.append(artist)
         track_list.append(track)
+        album_list.append(album)
         top_tag_list.append(tags)
 
-    return timestamp_list, artist_list, track_list, top_tag_list
+    return timestamp_list, artist_list, track_list, album_list, top_tag_list
 
 
-def create_dataframe(timestamps, artists, tracks, tags):
-    data = {'Timestamp': timestamps, 'Artist': artists, 'Track': tracks, 'Top Tags': tags}
+def create_dataframe(timestamps, artists, tracks, albums, tags):
+    data = {'Timestamp': timestamps, 'Artist': artists, 'Track': tracks, 'Album': albums, 'Top Tags': tags}
     df = pd.DataFrame(data)
     return df
 
@@ -101,27 +125,29 @@ def main():
         scrobbles = get_lastfm_scrobbles(api_key, username, from_timestamp, to_timestamp, page)
         
         if not scrobbles:
-            break  # No more pages or an error occurred
+            break  #stops the script if it raises an error or no scrobbles left to retrieve
 
         all_scrobbles.extend(scrobbles)
 
         # Check if the number of returned scrobbles is less than the limit
+        #-1 len to exclude counting header
         if len(scrobbles) < 20:
-            print(f"Page {page}: {len(scrobbles)} records, Time: {time.time() - start_time:.2f} seconds")
+            print(f"Page {page}: {len(scrobbles) - 1} records, Time: {time.time() - start_time:.2f} seconds")
             break 
 
 
-        print(f"Page {page}: {len(scrobbles)} records, Time: {time.time() - start_time:.2f} seconds")
+        print(f"Page {page}: {len(scrobbles) - 1} records, Time: {time.time() - start_time:.2f} seconds")
         page += 1
 
     if all_scrobbles:
-        timestamps, artists, tracks, tags = organize_scrobbles(all_scrobbles, api_key)
-        df = create_dataframe(timestamps, artists, tracks, tags)
+        timestamps, artists, tracks, albums, tags = organize_scrobbles(all_scrobbles, api_key)
+        df = create_dataframe(timestamps, artists, tracks, albums, tags)
 
         # Returns the df minus any entries with a Timestamp as 'N/A'
         # This is due to tracks being currently listened to appearing as such
-        print(f"Total scrobbles for {yesterday.date()} is {len(df)}")
-        return df[df['Timestamp'] != 'N/A']
+        df = df[df['Timestamp'] != 'N/A']
+        print(f"Total scrobbles for {yesterday.date()} is {len(df)} ") 
+        return df
 
 if __name__ == "__main__":
     result_df = main()
