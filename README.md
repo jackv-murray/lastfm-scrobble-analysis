@@ -4,7 +4,7 @@ last.fm scrobble analysis looking at my own listening habits!
 **replace logos with copies in assets folder and link to them**
 
 # Project Description
-In this data engineering project, I develop an end-to-end solution to analyse my listening history by building a pipeline to extract my scrobbles from the last.fm API. The pipeline is scheduled to run each day by extracting the previous day's scrobbles and loading them into a BigQuery data set. This then feeds into a Tableau dashboard, which aims to provide some insight into my listening habits. 
+In this data engineering project, I develop an end-to-end solution to analyse my listening history by building a pipeline to extract my scrobbles from the last.fm API. Firstly, a batch pipeline pulls the last 5 years worth of data. A further pipeline is scheduled to run each day by extracting the previous day's scrobbles and loading them into a BigQuery data set. This then feeds into a Tableau dashboard, which aims to provide some insight into my listening habits. 
 
 Docs for the API can be found here: [:musical_note:](https://www.last.fm/api/intro)
 
