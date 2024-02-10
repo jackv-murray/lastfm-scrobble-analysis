@@ -30,10 +30,10 @@ The data is extracted from the last.fm API, which is essentially the same listen
 Below are the tools used for this project. Where applicable, all scripting was done in Python.
 
 ## [<img src="https://wiki.coreelec.org/_media/coreelec:docker.png?w=380&tok=ea2958" width="200">](https://www.docker.com/)
-Docker is used a lot during the development phase in order to manage dependencies and easily deploy various containers for
-.
+Docker was used a lot during the development phase in order to manage dependencies which was very useful when initially testing/developing locally to switching development to the cloud VM instance. Having just one configuration and an easy way of deploying everything in a lightweight container greatly simplified the entire process.
+
 ## [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Terraform_Logo.svg/1280px-Terraform_Logo.svg.png" width="200">](https://www.terraform.io/)
-Terraform, a Infrastructure as Code (IaC) tool, is used to deploy various cloud resources in a convenient and reproducible way. 
+Terraform, a Infrastructure as Code (IaC) tool, was used to deploy various cloud resources in a convenient and reproducible way. 
 
 
 ## [<img src="https://mintlify.s3-us-west-1.amazonaws.com/mage/logo/light.svg" width="200">](https://www.mage.ai/) 
