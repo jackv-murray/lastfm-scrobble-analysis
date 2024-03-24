@@ -4,7 +4,7 @@
  </picture>
  </p>
 
-In this data engineering project, I develop an end-to-end solution to analyse my listening history by building a pipeline to extract my scrobbles from the last.fm API. 
+In this data engineering project, I develop an end-to-end solution to analyse my listening history by building a pipeline to extract my scrobbles from the last.fm API, model and process the data before finally visualising the results in a Tableau dashboard.
 
 This is a batch pipeline scheduled to run each day by extracting the previous day's scrobbles and loading them into a BigQuery data set. The pipeline can also be configured to capture scrobbles between specified date points, such as to retrieve the last few years worth of data. This then feeds into a Tableau dashboard, which aims to provide some insight into my listening habits.  Docs for the API can be found here: [:musical_note:](https://www.last.fm/api/intro)
 
