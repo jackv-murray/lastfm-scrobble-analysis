@@ -6,9 +6,7 @@
 
 In this data engineering project, I develop an end-to-end solution to analyse my listening history by building a pipeline to extract my scrobbles from the last.fm API. 
 
-This is a batch pipeline scheduled to run each day by extracting the previous day's scrobbles and loading them into a BigQuery data set. The pipeline can also be configured to capture scrobbles between specified date points, such as to retrieve the last few years worth of data. This then feeds into a Tableau dashboard, which aims to provide some insight into my listening habits. 
-
-Docs for the API can be found here: [:musical_note:](https://www.last.fm/api/intro)
+This is a batch pipeline scheduled to run each day by extracting the previous day's scrobbles and loading them into a BigQuery data set. The pipeline can also be configured to capture scrobbles between specified date points, such as to retrieve the last few years worth of data. This then feeds into a Tableau dashboard, which aims to provide some insight into my listening habits.  Docs for the API can be found here: [:musical_note:](https://www.last.fm/api/intro)
 
 
 <h1 align="center">What is last.fm?</h1>
@@ -19,7 +17,7 @@ A scrobble is a record of what you listened to, on an individual track level, so
 
 <h1 align="center">Project objectives</h1>
                                 
- After the data has been extracted from the Last.fm API, I aim to model the data in accordance with star schema principles. This involves organising the data into fact and dimension tables to facilitate efficient analysis and querying. The various dimension tables will also hold the extracted MusicBrainz IDs. 
+ After the data has been extracted from the Last.fm API, I aim to model the data in accordance with star schema principles. This involves organising the data into fact and dimension tables to facilitate efficient analysis and querying. 
  
  For the analysis part, I will create a Tableau dashboard and aim to answer the following questions:
  
@@ -33,10 +31,14 @@ A scrobble is a record of what you listened to, on an individual track level, so
 
 The data is extracted from the last.fm API, which is essentially the same listening data [held](https://www.last.fm/user/sorfildor) here on my profile. Follow me over there! I use the user.getrecenttracks and artist.gettoptags methods, retrieving a record of my scrobbling history including: timestamps, artist, album, track, associated MusicBrainz IDs and artist genre tags.
 
-
+<br />
 
 <p align="center">
  <picture>
 <img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/section%201.png" width="800">
  </picture>
  </p>
+
+
+
+**for modelling section, including star schema diagram?? https://www.databricks.com/glossary/star-schema**
