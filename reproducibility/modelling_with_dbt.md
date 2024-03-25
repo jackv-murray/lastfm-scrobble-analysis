@@ -160,3 +160,35 @@ models:
 Finally, dbt has a built-in way to generate documentation. Simply run ```dbt docs generate``` and navigate to the documentation tab beside the version control section.
 
 Here you can view a lot of useful information, including the SQL that generated the table, location of source data, macros used, descriptions (if provided) and so on.
+
+
+## dbt deployment into production
+
+Once we're satisfied with development we can open a request to merge into the main branch. These models can then run in the production environment using the main branch. 
+Here's how we'd schedule a production run:
+
+1. Within dbt, we can create a new environment 'PROD', seting the deployment type to ```Production```
+2. within the Production environment, create a new job under ```Deploy > Jobs```
+3. Here we can create a job to update the production tables and also a ```CI/CD``` job
+   * once the jobs run, the changes should be visible within our BigQuery tables
+
+
+ <p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/assets/102922713/49d395b2-0987-475a-929a-c2db8f26385a" width="300">
+ </picture>
+ </p>
+
+## Final data model
+
+ <p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/data%20model.png" width="700">
+ </picture>
+ </p>
+
+ 
+## 
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/back.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/mage_orchestration.md)
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/home.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/next.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
