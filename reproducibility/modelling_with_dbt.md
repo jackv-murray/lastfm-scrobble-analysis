@@ -50,6 +50,113 @@ To begin, initialise your project and create a new branch. Now we'll create our 
 
 ### Macros
 
-You may have noticed that in the raw output files, the tags are all combined into one string field from a comma separated list.
+You may have noticed that in the raw table, the tags are all combined into one string field from a comma separated list.
 In this form the field is a bit messy and it's hard to extract anything meaningful from it if it was put in a dashboard. The way that last.fm tagging works, 
-the first tag is the most popular genre that users have voted on  
+the first tag is the most popular genre that users have voted for. For sake of simplicity, I'll create a macro that can be used in model creation to simply extract the first
+tag. 
+
+Macros are similar to functions that are written in jinja, a templating language similar to python. 
+
+Creating a macro is easy - we'll create a new one in the ```macros``` folder e.g. your_macro.sql
+
+```
+{#
+    This macro splits the tags 
+    and takes the first one as the main tag
+#}
+
+{% macro get_first_tag(tag) -%}
+
+SPLIT(tag, ',')[OFFSET(0)] AS tag
+
+{%- endmacro %}
+
+```
+
+ Now simply call it in the generated code
+
+```
+with 
+
+source as (
+
+    select * from {{ source('staging_scrobble', 'raw_scrobble_data') }}
+
+),
+
+renamed as (
+
+    select
+        cast(timestamp as timestamp) AS timestamp,
+        artist,
+        artist_mbid,
+        track,
+        track_mbid,
+        album,
+        album_mbid,
+        {{ get_first_tag("tag") }}
+
+    from source
+
+)
+
+select * from renamed
+```
+
+### dbt build
+Now we can run ```dbt build``` - dbt will pickup all the models and tests as defined in the current project and execute them in order. 
+We can now see the new staging table created in BigQuery.
+
+ <p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/assets/102922713/40a184c4-024b-4d2f-83ed-f9ee279d3af2" width="700">
+ </picture>
+ </p>
+
+### Creating a fact table
+We can aggregate some of the playing history to create some a fact table containing some useful information for the end-user. 
+In this **very** simple example, i'll generate one for the total listens by artist and include some supplementary information such as genre.
+
+This time we'll materialise it as a table, rather than a view:
+
+```
+{{
+    config(
+        materialized='table'
+    )
+}}
+
+select
+    count(*) as total_listens,
+    artist,
+    tag as genre
+  from dbt_jmurray.stg_staging_scrobble__raw_scrobble_data
+
+  group by 2, 3
+```
+
+We can create a lot of complicated transformations and thankfully dbt will abstract a lot of the complexity away,
+making it syntax-compliant for the destination database regardless of how it's written within dbt.
+
+### Tests
+We can also introduce testing in the modelling process. Because I want to ensure that all timestamps are valid, I'll introduce a test to check that there are no nulls in that field.
+Under our ```schema.yml``` file, add a test by:
+
+```
+...
+models:
+  - name: stg_staging_scrobble_data
+    description: ""
+    columns:
+      - name: timestamp
+        data_type: timestamp
+        description: ""
+        tests:
+          - not_null:
+              severity: warn
+```
+
+### Documentation
+Finally, dbt has a built-in way to generate documentation. Simply run ```dbt docs generate``` and navigate to the documentation tab beside the version control section.
+
+Here you can view a lot of useful information, including the SQL that generated the table, location of source data, macros used, descriptions (if provided) and so on.
