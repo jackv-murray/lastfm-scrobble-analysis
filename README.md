@@ -60,13 +60,15 @@ The data is extracted from the last.fm API, which is essentially the same listen
 
 
 
-To follow-along and run the pipeline in your own environment, please see the below instructions. You may need to adjust some of the instructions if you're running it on a Linux machine.  
+To follow-along and run the pipeline in your own environment, please see the below instructions. You may need to adjust some of the instructions if you're not running it on a Linux machine.  
 
 [Section 1 - Environment Set-up](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/environment_setup.md)
 
 [Section 2 - Infrastructure deployment](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/infrastructure_deployment.md)
 
-Section 3 - 
+[Section 3 - last.fm API](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/lastfm_api.md)
+
+[Section 4 - Mage Orchestration](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/mage_orchestration.md)
 
 
 
