@@ -60,9 +60,9 @@ The data is extracted from the last.fm API, which is essentially the same listen
 
 
 
-To follow-along and run the pipeline in your own environment, please see the below instructions. 
+To follow-along and run the pipeline in your own environment, please see the below instructions. You may need to adjust some of the instructions if you're not on Linux.  
 
-Section 1 - environment setup
+[Section 1 - Environment Set-up](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/environment_setup.md)
 
 Section 2 - 
 
