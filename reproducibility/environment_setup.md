@@ -52,3 +52,7 @@ Next install all the project requirements on the VM, this includes:
 * Docker with docker-compose
 * [Terraform](https://www.terraform.io/downloads)
 
+##
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/home.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/next.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
+
