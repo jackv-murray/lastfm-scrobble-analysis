@@ -49,7 +49,7 @@ Next install all the project requirements on the VM, this includes:
 
 * [Python 3](https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh)
 * Google Cloud SDK - this should be pre-installed on your OS image
-* Docker with docker-compose
+* [Docker](https://docs.docker.com/get-docker/)
 * [Terraform](https://www.terraform.io/downloads)
 
 ##
