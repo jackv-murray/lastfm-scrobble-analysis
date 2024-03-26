@@ -72,5 +72,5 @@ To follow-along and run the pipeline in your own environment, please see the bel
 
 [Section 5 - Modelling with dbt](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/modelling_with_dbt.md)
 
-[Section 6 - Data Visualisation]
+[Section 6 - Data Visualisation](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/reproducibility/data_visualisation.md)
 
