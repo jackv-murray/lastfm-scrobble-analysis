@@ -30,27 +30,49 @@ To begin, initialise your project and create a new branch. Now we'll create our 
 2. within the new folder, create a new file ```schema.yml```
 3. enter the details for your BigQuery table - the one which the pipeline exported to
 
+```
+version: 2
 
- <p align="center">
- <picture>
-<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/assets/102922713/82517457-f5eb-476c-a7b9-531ffc02a942" width="300">
- </picture>
- </p>
+sources:
+  - name: staging_scrobble
+    database: de-zoomcamp-test
+    schema: scrobble_data
+
+    tables:
+     (you should see 'Generate model' here)
+      - name: raw_scrobble_data
+...
+```
 
 4. Note the ```Generate model``` above. Click this to generate a template for the model creation.
    * You can also define your schema datatypes within ```schema.yml``` before generating
 
+```
+models:
+  - name: stg_staging_scrobble_data
+    description: ""
+    columns:
+      - name: timestamp
+        data_type: timestamp
+        description: ""
+        tests:
+          - not_null:
+              severity: warn
 
- <p align="center">
- <picture>
-<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/assets/102922713/c4c5bb0f-00fb-4f71-890b-9e5345e1db2c" width="300">
- </picture>
- </p>
+      - name: artist
+        data_type: string
+        description: ""
+
+      - name: artist_mbid
+        data_type: string
+        description: ""
+...
+```
 
 
 ### Macros
 
-You may have noticed that in the raw table, the tags are all combined into one string field from a comma separated list.
+You may have noticed that in the raw table, the tags are all combined into one string field, separated by commas.
 In this form the field is a bit messy and it's hard to extract anything meaningful from it if it was put in a dashboard. The way that last.fm tagging works, 
 the first tag is the most popular genre that users have voted for. For sake of simplicity, I'll create a macro that can be used in model creation to simply extract the first
 tag. 
@@ -113,9 +135,19 @@ We can now see the new staging table created in BigQuery.
  </picture>
  </p>
 
+### Lineage
+As you're building your models, dbt will also record the lineage of your models. This is useful to understand how your tables were built from its respective data sources.
+
+ <p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/64296259-1368-4eac-a94c-48627f362cee" width="700">
+ </picture>
+ </p>
+
 ### Creating a fact table
-We can aggregate some of the playing history to create some a fact table containing some useful information for the end-user. 
-In this **very** simple example, i'll generate one for the total listens by artist and include some supplementary information such as genre.
+We can aggregate some of the playing history to create a basic fact table containing some useful information for the end-user. 
+In this **very** simple example, I'll generate one for the total listens by artist and include some supplementary information such as genre. This won't appear in the final data model, but serves as an example
+of what you could do with a more complicated dataset with more potential measures.
 
 This time we'll materialise it as a table, rather than a view:
 
@@ -187,7 +219,13 @@ Here's how we'd schedule a production run:
  </picture>
  </p>
 
- 
+In my data model, the dimension tables could be supplemented with further information to build a more comprehensive and insightful database. The [MusicBrainz API](https://musicbrainz.org/doc/MusicBrainz_API) could be used to retrieve dimensional data based on
+the [MBIDs](https://musicbrainz.org/doc/MusicBrainz_Identifier), such as band members or country of origin in the artist table, additional writing credits on the tracks or album table, and instruments used on the track table. 
+
+### Factless Fact Tables
+Because the final 'fact' table doesn't contain any measures, it's actually a [factless](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/factless-fact-table/)
+fact table. The table itself stores a record of scrobbles and dates, so it allows us aggregate and answer questions such as "how many tracks were listened to on a certain date?" or "how many progressive metal or electronic tracks were listened to?".
+
 ## 
 [<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/back.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/reproducibility/mage_orchestration.md)
 [<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/home.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
