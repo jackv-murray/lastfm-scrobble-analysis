@@ -21,7 +21,7 @@ I would recommend the following if you want to learn how to use Tableau:
 4. [Tableau Tim](https://www.youtube.com/@TableauTim)
 
 ## The 'Scrobble Analysis' Dashboard
-Here I'll talk about the design and development process. I won't go into the details on **how** to create the specific visualisations. Instead, I'll focus on more the more broader steps taken to create the dashboard.
+Here I'll talk about the design and development process. I won't go into the details on **how** to create the specific visualisations. Instead, I'll focus on the more broader steps taken to create the dashboard.
 
 ### Wireframe design
 Before creating anything in Tableau, it's usually a good idea to first create a wireframe, or template design. There are many tools available to aid you with this, such as [Figma](https://www.figma.com/). The Idea is to create
