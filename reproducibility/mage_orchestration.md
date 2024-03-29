@@ -6,6 +6,8 @@
 
 Now we'll build the pipeline in Mage, an open-source pipeline tool with orchestration, transformation and integration features. Mage separates each distinct phase of a pipeline into testable and reusable blocks of code and has a hybrid development environment, with an interactive GUI. 
 
+We'll extract the data from the API and perform some basic cleaning before loading it into GCS.
+
 ## Starting Mage
 
 Either use the mage-ai folder I include or alternatively clone the quick-start repo
@@ -23,9 +25,11 @@ acting as a secrets manager where I am able to reference it directly in the data
 
 <p align="center">
  <picture>
- <img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/assets/102922713/431e0c7d-6556-4e60-9a37-000f5ce5f607" width="600">
+ <img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/4c654188-f61a-4643-a293-443cdde929d6" width="600">
  </picture>
  </p>
+
+
  
 
 ## Configuring GCP with Mage
