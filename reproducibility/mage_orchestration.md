@@ -23,6 +23,8 @@ Either use the mage-ai folder I include or alternatively clone the quick-start r
 The pipeline is configured to run daily to capture the previous day's scrobbles. This is achieved through a date parameter passed to the data_loader block and a trigger which schedules it to run daily. The API key is hidden within Mage's Secrets section,
 acting as a secrets manager where I am able to reference it directly in the data_loader block as a variable. 
 
+You'll need to add these secrets with your own API key and set up a trigger that runs to your required schedule. 
+
 <p align="center">
  <picture>
  <img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/4c654188-f61a-4643-a293-443cdde929d6" width="600">
