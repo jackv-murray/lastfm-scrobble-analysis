@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: staging_scrobble
+    database: 'your_database_name'
+    schema: 'your_schema_name'
+
+    tables:
+      - name: raw_scrobble_data
+
+models:
+  - name: stg_staging_scrobble_data
+    description: ""
+    columns:
+      - name: timestamp
+        data_type: timestamp
+        description: ""
+        tests:
+          - not_null:
+              severity: warn
+
+      - name: artist
+        data_type: string
+        description: ""
+
+      - name: artist_mbid
+        data_type: string
+        description: ""
+      
+      - name: track
+        data_type: string
+        description: ""
+
+      - name: track_mbid
+        data_type: string
+        description: ""
+      
+      - name: album
+        data_type: string
+        description: ""
+
+      - name: album_mbid
+        data_type: string
+        description: ""
+      
+      - name: tag
+        data_type: string
+        description: ""
