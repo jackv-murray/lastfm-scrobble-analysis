@@ -44,6 +44,21 @@ GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/{your_credentials}.json"
 GOOGLE_LOCATION: EU # Optional
 ```
 
+## Creating an external table
+
+Once you've loaded the data into a GCS bucket, you can create an [external table](https://cloud.google.com/bigquery/docs/external-tables) from the contents, which you'll reference in dbt.
+
+Example:
+```
+CREATE OR REPLACE EXTERNAL TABLE `database.schema.your_table`
+OPTIONS (
+  format = 'csv',
+  uris = ['gs://bucket/data_folder/*.csv']
+)
+;
+```
+
+
 ## Deploying Mage on GCP 
 Firstly, you'll need a service account with the following permissions:
 * Artifact Registry Reader
