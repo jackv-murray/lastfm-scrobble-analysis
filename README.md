@@ -54,11 +54,10 @@ The data is extracted from the last.fm API, which is essentially the same listen
 
 <p align="center">
  <picture>
-<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobbledb.png" width="800">
+<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/b240be9c-34b2-4033-b122-bfcfa545efb4" width="80">
  </picture>
  </p>
 
- The final product of the pipeline, the Tableau dashboard which explores my scrobbling history over the years.
 
 <p align="center">
  <picture>
@@ -66,6 +65,7 @@ The data is extracted from the last.fm API, which is essentially the same listen
  </picture>
  </p>
 
+</br>
 
  <p align="center">
  <picture>
