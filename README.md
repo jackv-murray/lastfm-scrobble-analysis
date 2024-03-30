@@ -29,7 +29,7 @@ A scrobble is a record of what you listened to, on an individual track level, so
  * What sort of genres do I listen to the most?
  * At what time of the day do I listen to the most music?
  * Has my listening preferences changed over the years?
- * Do my preferences change depending on the season?
+ * How many tracks do I listen to on average per day?
 
 
 
@@ -50,6 +50,21 @@ The data is extracted from the last.fm API, which is essentially the same listen
  </picture>
  </p>
 
+
+
+<p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobbledb.png" width="800">
+ </picture>
+ </p>
+
+ The final product of the pipeline, the Tableau dashboard which explores my scrobbling history over the years.
+
+<p align="center">
+ <picture>
+<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png" width="800">
+ </picture>
+ </p>
 
 
  <p align="center">
