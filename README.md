@@ -54,7 +54,7 @@ The data is extracted from the last.fm API, which is essentially the same listen
 
 <p align="center">
  <picture>
-<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/b240be9c-34b2-4033-b122-bfcfa545efb4" width="80">
+<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/assets/102922713/b240be9c-34b2-4033-b122-bfcfa545efb4" width="50">
  </picture>
  </p>
 
@@ -64,6 +64,8 @@ The data is extracted from the last.fm API, which is essentially the same listen
 <img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png" width="800">
  </picture>
  </p>
+ 
+https://public.tableau.com/app/profile/jack.murray5825/viz/Last_fm-ScrobbleInsights/design2
 
 </br>
 
