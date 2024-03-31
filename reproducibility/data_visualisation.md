@@ -11,6 +11,12 @@
 
 You can create a new account  [here](https://public.tableau.com/en-gb/s/#modal-signup) and [explore](https://public.tableau.com/app/discover) some of the community-created dashboards for inspiration. 
 
+
+> **General notes**
+> 
+>The free Tableau Public version doesn't support a direct connection to Big Query, so the final dashboard is taking a snapshot of the data saved as an extract. If you were building this in production with the desktop version, you would simply connect to your data warehouse. 
+
+
 ### Getting started with Tableau
 Tableau has a great learning community and the tool has been available for a long time with plenty of updates over the years introducing new features and optimisations, meaning there's plenty of resources available.
 
