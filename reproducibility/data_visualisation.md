@@ -16,11 +16,12 @@ Tableau has a great learning community and the tool has been available for a lon
 
 I would recommend the following if you want to learn how to use Tableau:
 1. [Tableau - Get Started](https://www.tableau.com/en-gb/learn/get-started)
-2. [eLearning at Tableau](https://www.tableau.com/en-gb/learn/training/elearning)   *paid but worth it if there's a training budget*
+2. [eLearning at Tableau](https://www.tableau.com/en-gb/learn/training/elearning)
 3. [Flerlage Twins](https://www.flerlagetwins.com/)
 4. [Tableau Tim](https://www.youtube.com/@TableauTim)
+5. [Jim Dehner](https://jimdehner.com/)
 
-## The 'Scrobble Analysis' Dashboard
+## The 'Scrobble Insights' Dashboard
 Here I'll talk about the design and development process. I won't go into the details on **how** to create the specific visualisations. Instead, I'll focus on the more broader steps taken to create the dashboard.
 
 ### Wireframe design
@@ -37,3 +38,7 @@ Plus, it's much neater having distinct, separated spaces for each of your charts
 [Use of colour](https://www.thedataschool.co.uk/tobias-fitschen/dashboard-design-best-practices-color/) - Consider matching colours to your company's logos or colours scheme to create a distinct, associated theme. You can also add accessibility by using colour-blind friendly palletes.
 
 [Chart selection](https://public.tableau.com/app/profile/adedamola8122/viz/ChartSelectionGuide2/Dashboard) - What kind of graph is suitable for the type of data you have, and the story you want to tell with it? Avoid unhelpful graph types such as pie charts and keep it simple and purposeful.
+
+</br>
+
+[![project](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png)](https://public.tableau.com/app/profile/jack.murray5825/viz/Last_fm-ScrobbleInsights/design2)
