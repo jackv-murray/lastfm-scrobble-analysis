@@ -48,3 +48,9 @@ Plus, it's much neater having distinct, separated spaces for each of your charts
 </br>
 
 [![project](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png)](https://public.tableau.com/app/profile/jack.murray5825/viz/Last_fm-ScrobbleInsights/design2)
+
+
+## 
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/back.png" width="80">](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/reproducibility/modelling_with_dbt.md)
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/home.png" width="80">](https://github.com/jackv-murray/lastfm_scrobble_analysis)
+[<img src="https://github.com/jackv-murray/lastfm_scrobble_analysis/blob/main/assets/next.png" width="80">](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/reproducibility/thoughts_and_improvements.md)
