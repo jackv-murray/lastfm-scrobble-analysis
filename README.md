@@ -12,7 +12,7 @@ This is a batch pipeline scheduled to run each day by extracting the previous da
 <h1 align="center">What is last.fm?</h1>
 A website which records your listening history, with integrations into Spotify, Deezer etc. I've had an account for a very long time, so it was great to use that historic data in a project. Please support them by making an account and syncing it with your streaming app of choice.
 
-<h2 align="center">So, what is a scrobble?</h2>
+<h2 align="center"> last.fm 'scrobbles'</h2>
 A scrobble is a record of what you listened to, on an individual track level, so each scrobble equals one track played. In addition to the name of the track, each scrobble also contains information about the time you listened to it, name of the artist and album, genre and so on. 
 <br />
 <br />
@@ -35,7 +35,7 @@ A scrobble is a record of what you listened to, on an individual track level, so
 
 <h2 align="center">Data set</h2>
 
-The data is extracted from the last.fm API, which is essentially the same listening data [held](https://www.last.fm/user/sorfildor) here on my profile. Follow me over there! I use the user.getrecenttracks and artist.gettoptags methods, retrieving a record of my scrobbling history including: timestamps, artist, album, track, associated MusicBrainz IDs and artist genre tags.
+The data is extracted from the last.fm API, which is essentially the same listening data held on my last.fm profile. I use the user.getrecenttracks and artist.gettoptags methods, retrieving a record of my scrobbling history including: timestamps, artist, album, track, associated MusicBrainz IDs and artist genre tags.
 
 <br />
 <p align="center">
