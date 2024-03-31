@@ -59,13 +59,8 @@ The data is extracted from the last.fm API, which is essentially the same listen
  </p>
 
 
-<p align="center">
- <picture>
-<img src="https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png" width="800">
- </picture>
- </p>
- 
-https://public.tableau.com/app/profile/jack.murray5825/viz/Last_fm-ScrobbleInsights/design2
+[![project](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/assets/scrobble_db.png)](https://public.tableau.com/app/profile/jack.murray5825/viz/Last_fm-ScrobbleInsights/design2)
+
 
 </br>
 
