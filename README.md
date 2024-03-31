@@ -86,3 +86,5 @@ To follow-along and run the pipeline in your own environment, please see the bel
 
 [Section 6 - Data Visualisation](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/reproducibility/data_visualisation.md)
 
+[Thoughts and improvements](https://github.com/jackv-murray/lastfm-scrobble-analysis/blob/main/reproducibility/thoughts_and_improvements.md)
+
